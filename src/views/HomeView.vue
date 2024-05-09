@@ -1,18 +1,81 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="Home" class="flex flex-col h-screen">
+    <div class="m-3 mb-auto">
+
+      <div class="grid grid-cols-2 gap-3 my-3">
+        <ServiceSelectLarge 
+          text="Viagem"
+          imageWidth="74"
+          image="ride"
+        />
+        <ServiceSelectLarge 
+          text="Comida"
+          imageWidth="72"
+          image="food"
+          :promo="true"
+        />
+      </div>
+
+       <div class="grid grid-cols-4 gap-3 my-3">
+        <ServiceSelectSmall 
+          text="Duas rodas"
+          image="2wheels"
+        />
+        <ServiceSelectSmall 
+          text="Trânsito"
+          image="transit"
+        />
+        <ServiceSelectSmall 
+          text="Reservar"
+          image="reserve"
+        />
+        <ServiceSelectSmall 
+          text="Viagem"
+          image="travel"
+        />
+      </div>
+
+      <div class="w-full bg-custom-color p-3 h-14 rounded-full flex items-center">
+          <MagnifyIcon :size="40"/>
+          <div class="ml-3 text-xs font-semibold text-gray-700">
+            Pesquise aqui...
+          </div>
+      </div>
+
+    </div>
+
+    <footer class="w-full z-50 flex justify-around p-1 mb-2 border-t-2 border-t-gray-200">
+      <div class="grid place-items-center">
+        <HomeIcon :size="30" fillColor="#1f1e1e"/>
+        <div class="w-full -mt-1 text-xs text-center text-gray-800 font-semibold">
+          Home
+        </div>
+      </div>
+
+       <div class="grid place-items-center">
+        <MapMarkerIcon :size="30" fillColor="#b3b1b1"/>
+        <div class="w-full -mt-1 text-xs text-center text-gray-400 font-semibold">
+          Destino
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>
+  import ServiceSelectLarge from "@/components/ServiceSelectLarge.vue";
+    import ServiceSelectSmall from "@/components/ServiceSelectSmall.vue";
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  import MagnifyIcon from 'vue-material-design-icons/Magnify.vue'
+  import HomeIcon from 'vue-material-design-icons/Home.vue'
+  import MapMarkerIcon from 'vue-material-design-icons/MapMarker.vue'
 </script>
+
+<style lang="scss" scoped>
+#Home {
+  .bg-custom-color {
+    background-color: rgb(237, 237, 237);
+  }
+
+}
+</style>
